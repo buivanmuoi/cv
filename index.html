@@ -125,7 +125,7 @@
                     <svg id="themeMoon" class="w-4 h-4 sm:w-5 sm:h-5 hidden" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
                 </button>
                 <!-- Print/PDF Button -->
-                <button onclick="window.print()" class="flex items-center gap-1.5 sm:gap-2 bg-brand-600 hover:bg-brand-700 text-white px-3 sm:px-4 py-2 rounded-lg font-medium text-xs sm:text-sm transition shadow-lg shadow-brand-500/10">
+                <button onclick="downloadPDF()" class="flex items-center gap-1.5 sm:gap-2 bg-brand-600 hover:bg-brand-700 text-white px-3 sm:px-4 py-2 rounded-lg font-medium text-xs sm:text-sm transition shadow-lg shadow-brand-500/10">
                     <svg class="w-3.5 h-3.5 sm:w-4 sm:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
                     <span class="hidden xxs:inline" data-lang="fr">Imprimer / PDF</span>
                     <span class="hidden xxs:inline" data-lang="en">Print / PDF</span>
@@ -1058,6 +1058,12 @@
                 toast.classList.remove('translate-y-0', 'opacity-100');
                 toast.classList.add('translate-y-20', 'opacity-0');
             }, 3000);
+        }
+
+        // Open/Download PDF according to selected language
+        function downloadPDF() {
+            const pdfFile = currentLang === 'en' ? 'pdf/CV BUI Van Muoi EN.pdf' : 'pdf/CV BUI Van Muoi FR.pdf';
+            window.open(pdfFile, '_blank');
         }
     </script>
 </body>
